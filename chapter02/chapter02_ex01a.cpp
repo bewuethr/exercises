@@ -2,6 +2,9 @@
 
 // solution without STL containers, implements simple singly linked list; erase
 // function could be improved by checking for null pointers
+// More elegant: peek ahead (compare p->next->val instead of p->val to
+// first->val as erasing p->next is much easier than deleting p (no iterating
+// from head of list required)
 
 #include<iostream>
 
