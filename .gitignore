@@ -1,0 +1,49 @@
+# Windows image file caches
+Thumbs.db
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# CodeBlocks files
+*.cbp
+*.depend
+*.layout
+*.cscope_file_list
+
+# Visual Studio files
+*.opensdf
+*.sdf
+*.sln
+*.suo
+*.vcxproj
+*.vcxproj.user
+*.filters
+**/Debug
+**/Release
+
+# Large input files
+pics_and_txt/chapter23_ex01_in3.txt
+pics_and_txt/chapter23_ex04_in.txt
+pics_and_txt/chapter23_ex05_in.txt
+
+# Other
+common_mistakes.txt
