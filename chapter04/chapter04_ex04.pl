@@ -7,9 +7,9 @@ use 5.020;
 
 sub greet {
     my ($name) = @_;
-    state $last_person = "";
+    state $last_person;
     print "Hi $name! ";
-    if ($last_person eq "") {
+    if (!defined $last_person) {
         print "You are the first one here!\n";
     } else {
         print "$last_person is also here!\n";
