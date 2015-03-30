@@ -2,6 +2,9 @@
 
 # Prompt for message, append message to log file with time stamp
 
+use 5.020;
+use warnings;
+
 open LOG, '>>', 'logfile' or die "Can't open logfile: $!";
 
 print "Enter message for log: ";
