@@ -3,7 +3,7 @@
 # Take list of file names from command line; report for each if it's readable,
 # writable, executable or doesn't exist
 
-use strict;
+use 5.020;
 use warnings;
 
 foreach my $fname (@ARGV) {
