@@ -8,7 +8,7 @@ use warnings;
 use File::Basename;
 use File::Spec::Functions;
 
-die "Usage: chapter13_ex05.pl from_name to_name\n" unless @ARGV == 2;
+die "Usage: chapter13_ex06.pl from_name to_name\n" unless @ARGV == 2;
 my ( $from, $to ) = @ARGV;
 
 if ( -d $to ) {
