@@ -20,5 +20,8 @@ foreach my $line (@listing) {   # simpler: foreach ( `ls -l` )
     }
 }
 
-printf "Users: %s\n", keys %users;  # maybe sort keys
-printf "Groups: %s\n", keys %groups;
+my @users = sort keys %users;
+my @groups = sort keys %groups;
+
+say "Users: @users";
+say "Groups: @groups";
