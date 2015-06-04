@@ -1,0 +1,4 @@
+cocoa?n[ue]t
+Mary[-\s]+Anne?
+(unmatched
+(The\s+)?(Skipper|Professor)
