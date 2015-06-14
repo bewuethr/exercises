@@ -4,9 +4,11 @@ use strict;
 use warnings;
 use Test::More;
 
-plan tests => 5;
+plan tests => 7;
 
 BEGIN {
+    use_ok( 'LivingCreature' ) || print "Bail out!\n";
+    use_ok( 'Person' ) || print "Bail out!\n";
     use_ok( 'Animal' ) || print "Bail out!\n";
     use_ok( 'Cow' ) || print "Bail out!\n";
     use_ok( 'Horse' ) || print "Bail out!\n";

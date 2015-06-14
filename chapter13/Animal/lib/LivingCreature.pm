@@ -1,13 +1,12 @@
-package Animal;
+package LivingCreature;
 
-use 5.010_001;
+use 5.006;
 use strict;
 use warnings;
-use parent qw(LivingCreature);
 
 =head1 NAME
 
-Animal - The great new Animal!
+LivingCreature - The great new LivingCreature!
 
 =head1 VERSION
 
@@ -24,9 +23,9 @@ Quick summary of what the module does.
 
 Perhaps a little code snippet.
 
-    use Test;
+    use LivingCreature;
 
-    my $foo = Test->new();
+    my $foo = LivingCreature->new();
     ...
 
 =head1 EXPORT
@@ -42,7 +41,25 @@ if you don't export anything, such as for a purely object-oriented module.
 
 sub speak {
     my $class = shift;
-    $class->SUPER::speak;   # Ignore other arguments; could also die if defined @_
+    my $sound = shift;
+    my ($verb, $what);
+    if ($sound)  {
+        $verb = 'says';
+        $what = "'$sound'";
+    } else {
+        $verb = 'goes';
+        $what = $class->sound;
+    }
+        
+    print "a $class $verb $what!\n";
+}
+
+=head2 sound
+
+=cut
+
+sub sound {
+    die 'You have to define sound() in a subclass'
 }
 
 =head1 AUTHOR
@@ -62,7 +79,7 @@ automatically be notified of progress on your bug as I make changes.
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc Animal
+    perldoc LivingCreature
 
 
 You can also look for information at:
@@ -134,4 +151,4 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =cut
 
-1;
+1; # End of LivingCreature

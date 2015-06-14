@@ -1,4 +1,4 @@
-package Animal;
+package Person;
 
 use 5.010_001;
 use strict;
@@ -7,7 +7,7 @@ use parent qw(LivingCreature);
 
 =head1 NAME
 
-Animal - The great new Animal!
+Person - The great new Person!
 
 =head1 VERSION
 
@@ -24,9 +24,9 @@ Quick summary of what the module does.
 
 Perhaps a little code snippet.
 
-    use Test;
+    use Person;
 
-    my $foo = Test->new();
+    my $foo = Person->new();
     ...
 
 =head1 EXPORT
@@ -36,14 +36,11 @@ if you don't export anything, such as for a purely object-oriented module.
 
 =head1 SUBROUTINES/METHODS
 
-=head2 speak
+=head2 sound
 
 =cut
 
-sub speak {
-    my $class = shift;
-    $class->SUPER::speak;   # Ignore other arguments; could also die if defined @_
-}
+sub sound { 'hmmmmm' }
 
 =head1 AUTHOR
 
@@ -62,7 +59,7 @@ automatically be notified of progress on your bug as I make changes.
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc Animal
+    perldoc Person
 
 
 You can also look for information at:
@@ -134,4 +131,4 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =cut
 
-1;
+1; # End of Person
