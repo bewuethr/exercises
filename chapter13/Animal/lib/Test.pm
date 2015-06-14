@@ -1,13 +1,12 @@
-use 5.010_001;
-package Cow;
+package Test;
 
+use 5.006;
 use strict;
 use warnings;
-use parent qw(Animal);
 
 =head1 NAME
 
-Cow - The great new Cow!
+Test - The great new Test!
 
 =head1 VERSION
 
@@ -36,11 +35,19 @@ if you don't export anything, such as for a purely object-oriented module.
 
 =head1 SUBROUTINES/METHODS
 
-=head2 sound
+=head2 function1
 
 =cut
 
-sub sound { 'moooo' }
+sub function1 {
+}
+
+=head2 function2
+
+=cut
+
+sub function2 {
+}
 
 =head1 AUTHOR
 
@@ -59,7 +66,7 @@ automatically be notified of progress on your bug as I make changes.
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc Cow
+    perldoc Test
 
 
 You can also look for information at:
@@ -131,4 +138,4 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 =cut
 
-1;
+1; # End of Test
