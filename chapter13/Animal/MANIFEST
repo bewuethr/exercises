@@ -15,6 +15,7 @@ META.yml
 README
 scripts/person.pl
 t/00-load.t
+t/Animal.t
 t/manifest.t
 t/pod-coverage.t
 t/pod.t
