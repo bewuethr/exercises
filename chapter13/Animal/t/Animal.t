@@ -13,11 +13,12 @@ diag("Testing Animal $Animal::VERSION, Perl $], $^X");
 ok(defined &Animal::speak, 'Animal::speak is defined');
 
 # check that sound() dies
-eval { Animal->sound() } or my $at = $@;
+my $at;
+eval { Animal->sound() } or $at = $@;
 like($at, qr/You have to/, 'sound() dies with a message');    
 
 # check that speak() dies too
-eval { Animal->speak() } or my $at = $@;
+eval { Animal->speak() } or $at = $@;
 like($at, qr/You have to/, 'speak() dies with a message');    
 
 {

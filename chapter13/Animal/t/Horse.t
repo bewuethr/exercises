@@ -10,4 +10,4 @@ BEGIN {
 diag("Testing Horse $Horse::VERSION, PERL$], $^X");
 
 #check sound()
-is(&Horse::sound, 'neigh', 'Sound returns horse sound');
+is(Horse->sound, 'neigh', 'Sound returns horse sound');

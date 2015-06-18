@@ -2,13 +2,13 @@
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
-  'EXE_FILES' => [],
-  'VERSION_FROM' => 'lib/Animal.pm',
+  'NAME' => 'Animal',
   'PREREQ_PM' => {
                    'Test::More' => 0
                  },
+  'EXE_FILES' => [],
   'PL_FILES' => {},
-  'NAME' => 'Animal',
+  'VERSION_FROM' => 'lib/Animal.pm',
   'INSTALLDIRS' => 'site'
 )
 ;

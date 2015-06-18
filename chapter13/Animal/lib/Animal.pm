@@ -7,7 +7,7 @@ use parent qw(LivingCreature);
 
 =head1 NAME
 
-Animal - The great new Animal!
+Animal class for Alpaca book
 
 =head1 VERSION
 
@@ -20,23 +20,17 @@ our $VERSION = '0.01';
 
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
-
-Perhaps a little code snippet.
-
-    use Test;
-
-    my $foo = Test->new();
-    ...
+Class for all animals
 
 =head1 EXPORT
 
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
+speak
 
 =head1 SUBROUTINES/METHODS
 
 =head2 speak
+
+Makes the animal speak.
 
 =cut
 
@@ -54,9 +48,6 @@ Benjamin Wuthrich, C<< <benjamin at example.com> >>
 Please report any bugs or feature requests to C<bug-. at rt.cpan.org>, or through
 the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=.>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
-
-
-
 
 =head1 SUPPORT
 
