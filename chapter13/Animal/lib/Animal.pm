@@ -4,6 +4,7 @@ use 5.010_001;
 use strict;
 use warnings;
 use parent qw(LivingCreature);
+use Carp qw(croak);
 
 =head1 NAME
 
@@ -22,11 +23,26 @@ our $VERSION = '0.01';
 
 Class for all animals
 
+
 =head1 EXPORT
 
-speak
+named, speak, name, set_name, color, set_color, default_color
+
 
 =head1 SUBROUTINES/METHODS
+
+=head2 named
+
+Constructor for animals: takes name as argument
+
+=cut
+
+sub named {
+    ref(my $class = shift) and croak "class name needed";
+    my $name = shift;
+    my $self = { Name => $name, Color => $class->default_color };
+    bless $self, $class;
+}
 
 =head2 speak
 
@@ -38,6 +54,63 @@ sub speak {
     my $class = shift;
     $class->SUPER::speak;   # Ignore other arguments; could also die if defined @_
 }
+
+=head2 name
+
+Return the name of the specific animal or the generic class name
+
+=cut
+
+sub name {
+    my $either = shift;
+    ref $either
+        ? $either->{Name}
+        : "an unnamed $either";
+}
+
+=head2 set_name
+
+Setter for animal name
+
+=cut
+
+sub set_name {
+    ref(my $self = shift) or croak "instance variable needed";
+    $self->{Name} = shift;
+}
+
+=head2 default_color
+
+Return the default color for animals.
+
+=cut
+
+sub default_color { 'brown' }
+
+=head2 color
+
+Return the color of the animal
+
+=cut
+
+sub color {
+    my $either = shift;
+    ref $either
+        ? $either->{Color}
+        : default_color;
+}
+    
+=head2 set_color
+
+Set the color of an animal instance
+
+=cut
+
+sub set_color {
+    ref(my $self = shift) or croak "instance variable needed";
+    $self->{Color} = shift;
+}
+
 
 =head1 AUTHOR
 
