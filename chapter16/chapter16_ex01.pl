@@ -16,4 +16,18 @@ say "\nDate initialized with values:";
 printf "%s %d, %d\n", $date2->month, $date2->day, $date2->year;
 
 # Test non-existing getter
+say '';
 my $nope = $date1->weekday;
+
+# Exercise 2: add UNIVERSAL::debug function that prints a timestamp before the
+# message you pass to it, call it on the MyDate object.
+
+sub UNIVERSAL::debug {
+    my $self = shift;
+    my $message = shift;
+    my $timestamp = localtime;
+    say "$timestamp $message";
+}
+
+say '';
+$date1->debug('Test');
