@@ -2,4 +2,4 @@ author: Benjamin Wuthrich
 email: benjamin@example.com
 builder: Module::Build
 verbose: 1
-plugins: Module::Starter::AddModule
+# plugins: Module::Starter::AddModule
