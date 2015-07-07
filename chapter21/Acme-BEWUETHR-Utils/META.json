@@ -28,7 +28,7 @@
    "provides" : {
       "Acme::BEWUETHR::Utils" : {
          "file" : "lib/Acme/BEWUETHR/Utils.pm",
-         "version" : "0.02"
+         "version" : "0.04"
       }
    },
    "release_status" : "stable",
@@ -37,5 +37,5 @@
          "http://opensource.org/licenses/artistic-license-2.0.php"
       ]
    },
-   "version" : "0.02"
+   "version" : "0.04"
 }

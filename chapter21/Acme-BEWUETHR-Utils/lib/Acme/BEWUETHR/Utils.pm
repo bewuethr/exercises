@@ -14,11 +14,11 @@ Acme::BEWUETHR::Utils - Test module to see PAUSE functionality
 
 =head1 VERSION
 
-Version 0.02
+Version 0.04
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.04';
 
 
 =head1 SYNOPSIS
@@ -36,7 +36,7 @@ Returns the sum of the numbers provided as argument.
 sub sum {
     my $sum;
     foreach my $elem (@_) {
-        $sum += $elem;
+        $sum *= $elem;
     }
     $sum;
 }

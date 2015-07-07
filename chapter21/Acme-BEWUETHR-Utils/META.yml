@@ -16,7 +16,7 @@ name: Acme-BEWUETHR-Utils
 provides:
   Acme::BEWUETHR::Utils:
     file: lib/Acme/BEWUETHR/Utils.pm
-    version: '0.02'
+    version: '0.04'
 resources:
   license: http://opensource.org/licenses/artistic-license-2.0.php
-version: '0.02'
+version: '0.04'

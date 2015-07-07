@@ -2,13 +2,13 @@
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
-  'PL_FILES' => {},
-  'INSTALLDIRS' => 'site',
-  'VERSION_FROM' => 'lib/Acme/BEWUETHR/Utils.pm',
   'PREREQ_PM' => {
                    'Test::More' => 0
                  },
-  'NAME' => 'Acme::BEWUETHR::Utils',
-  'EXE_FILES' => []
+  'EXE_FILES' => [],
+  'PL_FILES' => {},
+  'INSTALLDIRS' => 'site',
+  'VERSION_FROM' => 'lib/Acme/BEWUETHR/Utils.pm',
+  'NAME' => 'Acme::BEWUETHR::Utils'
 )
 ;
