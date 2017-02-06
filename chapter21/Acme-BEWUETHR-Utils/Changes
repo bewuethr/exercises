@@ -1,0 +1,10 @@
+Revision history for Acme-BEWUETHR-Utils
+
+0.01    Tue Jul 07 00:22:00 2015
+        First (and only) version
+
+0.03    Tue Jul 07 01:18:00 2015
+        Add occupied namespace
+
+0.04    Tue Jul 07 01:22:00 2015
+        Make tests fail
