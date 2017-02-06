@@ -1,0 +1,23 @@
+A line with Fred.
+And on this one, there's frederick.
+Should match Mississippi.
+What about Alfred?
+fred flintstone and wilma on this one.
+Bamm-Bamm should match, too.
+This line should not match at all!
+And llama is a match.
+Does it notice Mr. Slate?
+should not match fred
+should not match FRED
+fred wilma
+wilma fred
+fredwilma
+wilmafred
+wilma wilma fred
+wilma
+fred
+wilma fred fred
+fred wilma
+fred abc wilma
+abc fred wilma fred
+abc wilma fred wilma
