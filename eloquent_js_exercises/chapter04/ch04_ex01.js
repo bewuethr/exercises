@@ -1,20 +1,21 @@
-function range(start, end, step) {
-    var arr = [];
-    var mystep = arguments.length == 3 ? step : 1;
-    var val = start;
-    while (true) {
-        arr.push(val);
-        val += mystep;
-        if (start < end && val > end || start > end && val < end)
-            break;
+function range(start, end, step = start < end ? 1 : -1) {
+    arr = [];
+    if (step > 0) {
+        for (n = start; n <= end; n += step) {
+            arr.push(n);
+        }
+    } else if (step < 0) {
+        for (n = start; n >= end; n += step) {
+            arr.push(n);
+            }
     }
     return arr;
 }
 
 function sum(arr) {
-    var res = 0;
-    console.log(arr);
-    for (var i = 0; i < arr.length; ++i)
-        res += arr[i];
-    return res;
+    s = 0;
+    for (let num of arr) {
+        s += num;
+    }
+    return s;
 }
