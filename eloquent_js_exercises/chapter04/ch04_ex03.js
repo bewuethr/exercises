@@ -1,38 +1,24 @@
-function arrayToList(arr) {
-    var list = null;
-    for (var i = arr.length - 1; i >= 0; --i)
-        list = { value: arr[i], rest: list };
+function arrayToList(array) {
+    let list = null;
+    for (let i = array.length - 1; i >= 0; --i) {
+        list = {value: array[i], rest: list};
+    }
     return list;
 }
 
 function listToArray(list) {
-    var arr = [];
-    var myList = list;
-    while (myList) {            // More elegant: for (var node = list; node; node = node.rest)
-        arr.push(myList.value);
-        myList = myList.rest;
+    let array = [];
+    for (let node = list; node; node = node.rest) {
+        array.push(node.value);
     }
-    return arr;
+    return array;
 }
 
-function prepend(num, list) {
-    return { value: num, rest: list };
+function prepend(element, list) {
+    return arrayToList([element, ...listToArray(list)]);
 }
 
-function nth(list, num) {
-    var node = list;
-    for (var i = 0; i < num; ++i) {
-        if (! node.rest)
-            return undefined;
-        node = node.rest;
-    }
-    return node.value;
-}
-
-function nthRecurse(list, num) {
-    if (! list)
-        return undefined;
-    if (num === 0)
-        return list.value;
-    return nthRecurse(list.rest, num - 1);
+function nth(list, n) {
+    if (n === 0) return list.value;
+    else return list.rest ? nth(list.rest, n-1) : null;
 }
