@@ -15,10 +15,11 @@ function listToArray(list) {
 }
 
 function prepend(element, list) {
-    return arrayToList([element, ...listToArray(list)]);
+    return {element, rest: list};
 }
 
 function nth(list, n) {
+    // Could check if (!list) here instead or in the return expression
     if (n === 0) return list.value;
-    else return list.rest ? nth(list.rest, n-1) : null;
+    else return list.rest ? nth(list.rest, n-1) : undefined;
 }
