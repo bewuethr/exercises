@@ -1,14 +1,15 @@
-function reverseArray(arr) {
-    var revArr = [];
-    for (var i = 0; i < arr.length; ++i)
-        revArr.unshift(arr[i]);
-    return revArr;
+function reverseArray(array) {
+    let newArray = [];
+    for (let el of array) {
+        newArray.unshift(el);
+    }
+    return newArray;
 }
 
-function reverseArrayInPlace(arr) {
-    for (var i = 0; i < arr.length/2; ++i) {
-        var tmp = arr[i];
-        arr[i] = arr[arr.length - 1 -i];
-        arr[arr.length - 1 -i] = tmp;
+function reverseArrayInPlace(array) {
+    for (let i = 0; i < Math.floor(array.length/2); ++i) {
+        let temp = array[i];
+        array[i] = array[array.length - 1 - i];
+        array[array.length - 1 - i] = temp;
     }
 }
