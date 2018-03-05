@@ -1,15 +1,8 @@
-function every(array, test) {
-    for (var i = 0; i < array.length; ++i) {
-        if (!test(array[i]))
-            return false;
-    }
-    return true;
-}
+function dominantDirection(text) {
+    let scripts = countBy(text, char => {
+        let script = characterScript(char.codePointAt(0));
+        return script ? script.direction : "none";
+    }).filter(({name}) => name != "none");
 
-function some(array, test) {
-    for (var i = 0; i < array.length; ++i) {
-        if (test(array[i]))
-            return true;
-    }
-    return false;
+    return scripts.reduce((a, b) => a.count > b.count ? a : b).name;
 }
