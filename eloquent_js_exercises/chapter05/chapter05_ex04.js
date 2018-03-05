@@ -4,5 +4,7 @@ function dominantDirection(text) {
         return script ? script.direction : "none";
     }).filter(({name}) => name != "none");
 
+    if (counted.length == 0) return "ltr";
+
     return scripts.reduce((a, b) => a.count > b.count ? a : b).name;
 }
