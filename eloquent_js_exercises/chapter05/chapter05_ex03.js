@@ -6,8 +6,7 @@ function every1(array, test) {
 }
 
 function every2(array, test) {
-    const revTest = elem => !test(elem);
-    return !array.some(revTest);
+    return !array.some(elem => !test(elem));
 }
 
 console.log(every1([1, 3, 5], n => n < 10));
