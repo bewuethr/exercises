@@ -1,10 +1,8 @@
-var ages = ancestry.map(function(person) {
-    if (person.mother in byName)
-        return person.born - byName[person.mother].born;
-    else
-        return null;
-}).filter(function(age) {
-    return age !== null;
-});
+function loop(value, test, update, body) {
+    for (let i = value; test(i); i = update(i)) body(i);
+}
 
-console.log(average(ages));
+loop(3, n => n > 0, n => n - 1, console.log);
+// → 3
+// → 2
+// → 1
