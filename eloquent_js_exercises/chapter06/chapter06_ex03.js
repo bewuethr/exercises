@@ -1,36 +1,52 @@
-function ArraySeq(array) {
-    this.array = array;
-    this.counter = 0;
-}
-Object.defineProperty(ArraySeq.prototype, "atEnd", {
-    get: function() {
-        return this.counter == this.array.length;
+class Group {
+    constructor() {
+        this.members = [];
     }
-});
-ArraySeq.prototype.getNext = function() {
-    return this.array[this.counter++];
+
+    add(elem) {
+        // Could use Group.has() here instead
+        if (!this.members.includes(elem)) {
+            this.members.push(elem);
+        }
+    }
+
+    delete(elem) {
+        // Don't really need if check here, filter if element is not there is
+        // no-op
+        if (this.members.includes(elem)) {
+            this.members = this.members.filter(e => e !== elem);
+        }
+    }
+
+    has(elem) {
+        return this.members.includes(elem);
+    }
+
+    // Better name: collection
+    static from(iterable) {
+        let group = new Group();
+        for (let elem of iterable) {
+            group.add(elem);
+        }
+        return group;
+    }
+
+    [Symbol.iterator]() {
+        return new GroupIterator(this);
+    }
 }
 
-function RangeSeq(from, to) {
-    this.array = [];
-    for (var i = from; i <= to; ++i)
-        this.array.push(i);
-    this.counter = 0;
-}
-Object.defineProperty(RangeSeq.prototype, "atEnd", {
-    get: function() {
-        return this.counter == this.array.length;
+class GroupIterator {
+    constructor(group) {
+        this.idx = 0;
+        this.group = group;
     }
-});
-RangeSeq.prototype.getNext = function() {
-    return this.array[this.counter++];
-}
 
-function logFive(sequence) {
-    for (var i = 0; i < 5; ++i) {
-        if (sequence.atEnd)
-            break;
-        else
-            console.log(sequence.getNext());
+    next() {
+        if (this.idx == this.group.members.length) return {done: true};
+
+        let value = this.group.members[this.idx];
+        ++this.idx;
+        return {value, done: false};
     }
 }
