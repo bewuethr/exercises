@@ -15,8 +15,4 @@ class Vec {
     get length() {
         return Math.sqrt(this.x**2 + this.y**2);
     }
-
-    toString() {
-        return `Vec{x: ${this.x}, y: ${this.y}}`;
-    }
 }
