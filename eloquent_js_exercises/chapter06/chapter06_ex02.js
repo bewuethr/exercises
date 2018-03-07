@@ -1,14 +1,29 @@
-function StretchCell(inner, width, height) {
-    this.inner = inner;
-    this.width = width;
-    this.height = height;
-}
-StretchCell.prototype.minWidth = function() {
-    return Math.max(this.inner.minWidth(), this.width);
-}
-StretchCell.prototype.minHeight = function() {
-    return Math.max(this.inner.minHeight(), this.height);
-}
-StretchCell.prototype.draw = function() {
-    return this.inner.draw();
+class Group {
+    constructor() {
+        this.members = [];
+    }
+
+    add(elem) {
+        if (!this.members.includes(elem)) {
+            this.members.push(elem);
+        }
+    }
+
+    delete(elem) {
+        if (this.members.includes(elem)) {
+            this.members = this.members.filter(e => e !== elem);
+        }
+    }
+
+    has(elem) {
+        return this.members.includes(elem);
+    }
+
+    static from(iterable) {
+        let group = new Group();
+        for (let elem of iterable) {
+            group.add(elem);
+        }
+        return group;
+    }
 }
