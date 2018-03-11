@@ -1,58 +1,21 @@
-// Exercise 1
-function SmartPlantEater() {
-    this.energy = 20;
-    this.dir = "s";
-}
-SmartPlantEater.prototype.act = function(view) {
-    var space = view.find(" ");
-    if (this.energy > 60 && space)
-        return {type: "reproduce", direction: space};
-
-    // Only eat plants if there will be at least one left afterwards
-    var plants = view.findAll("*");
-    if (plants.length > 1)
-        return {type: "eat", direction: plants[0]};
-
-    // WallFollower style movement
-    if (space) {
-        var start = this.dir;
-        if (view.look(dirPlus(this.dir, -3)) != " ")
-            start = this.dir = dirPlus(this.dir, -2);
-        while (view.look(this.dir) != " ") {
-            this.dir = dirPlus(this.dir, 1);
-            if (this.dir == start) break;
+function getTurnCount(state, robot, memory) {
+    for (let turn = 0;; turn++) {
+        if (state.parcels.length == 0) {
+            return turn;
         }
-        return {type: "move", direction: this.dir};
+        let action = robot(state, memory);
+        state = state.move(action.direction);
+        memory = action.memory;
     }
-};
-
-// Exercise 2
-
-function Tiger() {
-    this.energy = 50;
-    this.direction = randomElement(directionNames);
-    this.preyContacts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 }
-Tiger.prototype.act = function(view) {
-    var space = view.find(" ");
-    if (this.energy > 100 && space)
-        return {type: "reproduce", direction: space};
 
-    // Update array of number of prey seen in the last 10 rounds
-    this.preyContacts.shift();
-    this.preyContacts.push(view.findAll("O").length);
-    var preyCount = this.preyContacts.reduce(function(a, b) {
-        return a+b;
-    });
-    var prey = view.find("O");
-
-    // Only eat if energy is low or prey count high
-    if (prey && (this.energy < 40 || preyCount > 0))
-        return {type: "eat", direction: prey};
-
-    if (space) {
-        if (view.look(this.direction) != " ")
-            this.direction = space;
-        return {type: "move", direction: this.direction};
-    };
+function compareRobots(robot1, memory1, robot2, memory2) {
+    let total1 = 0, total2 = 0, reps = 100;
+    for (let i = 0; i < reps; ++i) {
+        let initState = VillageState.random();
+        total1 += getTurnCount(initState, robot1, memory1);
+        total2 += getTurnCount(initState, robot2, memory2);
+    }
+    console.log(`${robot1.name}: ${total1 / reps}\n` +
+                `${robot2.name}: ${total2 / reps}`);
 }
