@@ -1,5 +1,4 @@
-Exercises from "Cracking the Coding Interview"
-==============
+# Exercises from "Cracking the Coding Interview"
 
 Exercises from [Gayle Laakmann McDowell](http://www.gayle.com/)'s "[Cracking the Coding Interview](http://www.crackingthecodinginterview.com/)", in C++.
 
