@@ -1,15 +1,13 @@
 function withBoxUnlocked(body) {
-    var relock = false;
-    if (box.locked) {
+    let wasLocked = box.locked;
+    if (wasLocked) {
         box.unlock();
-        relock = true;
     }
-
     try {
         return body();
-    }
-    finally {
-        if (relock)
+    } finally {
+        if (wasLocked) {
             box.lock();
+        }
     }
 }
