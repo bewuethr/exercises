@@ -3,9 +3,7 @@ function reliableMultiply(a, b) {
         try {
             return primitiveMultiply(a, b);
         } catch (error) {
-            if  (error instanceof MultiplicatorUnitFailure) {
-                console.log("MultiplicatorUnitFailure caught");
-            } else {
+            if  (!(error instanceof MultiplicatorUnitFailure)) {
                 throw error;
             }
         }
