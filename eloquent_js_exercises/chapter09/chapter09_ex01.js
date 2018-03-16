@@ -1,27 +1,29 @@
+// Fill in the regular expressions
+
 verify(/ca[rt]/,
-        ["my car", "bad cats"],
-        ["camper", "high art"]);
+       ["my car", "bad cats"],
+       ["camper", "high art"]);
 
 verify(/pr?op/,
-        ["pop culture", "mad props"],
-        ["plop"]);
+       ["pop culture", "mad props"],
+       ["plop"]);
 
-verify(/ferr[et|y|ari]/,
-        ["ferret", "ferry", "ferrari"],
-        ["ferrum", "transfer A"]);
+verify(/ferr(et|y|ari)/,
+       ["ferret", "ferry", "ferrari"],
+       ["ferrum", "transfer A"]);
 
 verify(/ious\b/,
-        ["how delicious", "spacious room"],
-        ["ruinous", "consciousness"]);
+       ["how delicious", "spacious room"],
+       ["ruinous", "consciousness"]);
 
 verify(/\s[.,:;]/,
-        ["bad punctuation ."],
-        ["escape the dot"]);
+       ["bad punctuation ."],
+       ["escape the period"]);
 
 verify(/\w{7,}/,
-        ["hottentottententen"],
-        ["no", "hotten totten tenten"]);
+       ["hottentottententen"],
+       ["no", "hotten totten tenten"]);
 
-verify(/\b[^e ]+\b/,
-        ["red platypus", "wobbling nest"],
-        ["earth bed", "learning ape"]);
+verify(/\b[^e\s]+\b/,
+       ["red platypus", "wobbling nest"],
+       ["earth bed", "learning ape"]);
