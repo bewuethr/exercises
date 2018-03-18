@@ -11,6 +11,7 @@ const roads = [
     "Marketplace-Town Hall",       "Shop-Town Hall"
 ];
 
+// Not really needed - could call buildGraph directly
 let roadArray = roads.map(r => r.split("-"));
 
 exports.roadGraph = buildGraph(roadArray);
