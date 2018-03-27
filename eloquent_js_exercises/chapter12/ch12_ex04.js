@@ -3,8 +3,12 @@ specialForms.set = (args, scope) => {
         throw new SyntaxError("Incorrect use of set");
     }
     let curScope = scope;
+
+    // Would be nicer with a for loop to change scope
     while (!Object.prototype.hasOwnProperty.call(curScope, args[0].name)) {
         curScope = Object.getPrototypeOf(curScope);
+
+        // Could probably use (!curScope) instead
         if (curScope === null) {
             throw new ReferenceError("Can't set non-existing binding " +
                                      `'${args[0].name}'`);
