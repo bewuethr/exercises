@@ -5,5 +5,6 @@
   * [Learning Perl](llama_book_exercises) ("The Llama book")
   * [Intermediate Perl](alpaca_book_exercises) ("The Alpaca Book")
   * [Eloquent JavaScript](eloquent_js_exercises)
+  * [The Go Programming Language](gopl)
 * Solutions to online challenges
   * [Rosalind](rosalind)
