@@ -1,9 +1,9 @@
-let str = "";
 let size = 8;
-for (let i = 0; i < size; ++i) {
-    for (let j = 0; j < size; ++j) {
-        str += (j + i) % 2 ? "#" : " ";
-    }
-    str += "\n";
+
+for (let i = 0; i < size; i++) {
+	let line = "";
+	for (let j = 0; j < size; j++) {
+		line += i%2 == j%2 ? " " : "#";
+	}
+	console.log(line);
 }
-console.log(str)
