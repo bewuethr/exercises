@@ -1,13 +1,6 @@
-function isEven(x) {
-    x = x < 0 ? -x : x;
-    if (x === 0) return true;
-    else if (x === 1) return false;
-    else return isEven(x-2);
+function isEven(a) {
+	a = a < 0 ? -a : a;
+	if (a == 0) return true;
+	if (a == 1) return false;
+	return isEven(a-2);
 }
-
-console.log(isEven(50));
-// → true
-console.log(isEven(75));
-// → false
-console.log(isEven(-1));
-// → ??
