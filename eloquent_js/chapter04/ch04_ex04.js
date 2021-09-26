@@ -1,14 +1,14 @@
-function deepEqual(obj1, obj2) {
-    if (typeof obj1 != "object" || obj1 == null ||
-        typeof obj2 != "object" || obj2 == null) return obj1 === obj2;
+function deepEqual(a, b) {
+	if (!(isObject(a) && isObject(b))) return a === b;
 
-    let keys1 = Object.keys(obj1), keys2 = Object.keys(obj2);
+	for (let key of Object.keys(a)) {
+		if (!(key in b)) return false;
+		if (!deepEqual(a[key], b[key])) return false;
+	}
 
-    if (keys1.length != keys2.length) return false;
+	return true;
+}
 
-    for (let key of keys1) {
-        if (!(keys2.includes(key) &&
-              deepEqual(obj1[key], obj2[key]))) return false;
-    }
-    return true;
+function isObject(a) {
+	return typeof a == "object" && a != null;
 }
