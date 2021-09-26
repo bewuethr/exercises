@@ -24,13 +24,7 @@ function prepend(elem, list) {
 }
 
 function nth(list, n) {
-	if (n == 0) {
-		return list.value;
-	}
-
-	if (list.rest == null) {
-		return undefined;
-	}
-
+	if (!list) return undefined;
+	if (n == 0) return list.value;
 	return nth(list.rest, n -1);
 }
