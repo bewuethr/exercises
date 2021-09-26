@@ -1,4 +1,4 @@
-function range(start, end, step = 1) {
+function range(start, end, step = end > start ? 1 : -1) {
 	let arr = [];
 	for (let n = start; Math.abs(n - start) <= Math.abs(end - start); n += step) {
 		arr.push(n);
