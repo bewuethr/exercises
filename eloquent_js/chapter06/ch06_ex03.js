@@ -26,7 +26,7 @@ class Group {
 		return g;
 	}
 
-	Symbol.iterator = function() {
+	[Symbol.iterator]() {
 		return new GroupIterator(this);
 	}
 }
@@ -38,10 +38,13 @@ class GroupIterator {
 	}
 
 	next() {
-		if (this.pos == this.group.length) {
-			return {value: undefined, done: true};
+		if (this.pos >= this.group.members.length) {
+			return {done: true};
 		}
 
-		return {value: this.group[this.pos++], done: false};
+		return {
+			value: this.group.members[this.pos++],
+			done: false
+		};
 	}
 }
