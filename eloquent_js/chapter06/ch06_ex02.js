@@ -4,7 +4,7 @@ class Group {
 	}
 
 	add(element) {
-		if (!this.members.includes(element)) {
+		if (!this.has(element)) {
 			this.members.push(element);
 		}
 	}
@@ -18,7 +18,7 @@ class Group {
 	}
 
 	static from(group) {
-		let g = new Group();
+		let g = new Group;
 		for (let element of group) {
 			g.add(element);
 		}
