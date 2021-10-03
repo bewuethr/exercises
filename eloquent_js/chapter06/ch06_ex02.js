@@ -1,33 +1,28 @@
 class Group {
-    constructor() {
-        this.members = [];
-    }
+	constructor() {
+		this.members = [];
+	}
 
-    add(elem) {
-        // Could use Group.has() here instead
-        if (!this.members.includes(elem)) {
-            this.members.push(elem);
-        }
-    }
+	add(element) {
+		if (!this.members.includes(element)) {
+			this.members.push(element);
+		}
+	}
 
-    delete(elem) {
-        // Don't really need if check here, filter if element is not there is
-        // no-op
-        if (this.members.includes(elem)) {
-            this.members = this.members.filter(e => e !== elem);
-        }
-    }
+	delete(element) {
+		this.members = this.members.filter(e => e !== element);
+	}
 
-    has(elem) {
-        return this.members.includes(elem);
-    }
+	has(element) {
+		return this.members.includes(element);
+	}
 
-    // Better name: collection
-    static from(iterable) {
-        let group = new Group();
-        for (let elem of iterable) {
-            group.add(elem);
-        }
-        return group;
-    }
+	static from(group) {
+		let g = new Group();
+		for (let element of group) {
+			g.add(element);
+		}
+
+		return g;
+	}
 }
