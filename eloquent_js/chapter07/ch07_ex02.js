@@ -8,7 +8,7 @@ function myRobot({place, parcels}, route) {
 
 			return {
 				pickup: false,
-				route: findRoute(roadGraph, place, p.adress)
+				route: findRoute(roadGraph, place, p.address)
 			};
 		});
 
