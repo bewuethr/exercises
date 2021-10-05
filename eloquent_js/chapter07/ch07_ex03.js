@@ -1,21 +1,19 @@
 class PGroup {
-    constructor(members) {
-        this.members = members;
-    }
+	constructor(array) {
+		this.members = array;
+	}
 
-    add(elem) {
-        if (this.has(elem)) return this;
-        return new PGroup(this.members.concat(elem));
-    }
+	add(element) {
+		return new PGroup(this.members.slice().push(element));
+	}
 
-    delete(elem) {
-        if (!this.has(elem)) return this;
-        return new PGroup(this.members.filter(e => e !== elem));
-    }
+	delete(element) {
+		return new PGroup(this.members.filter(e => e !== element));
+	}
 
-    has(elem) {
-        return this.members.includes(elem);
-    }
+	has(element) {
+		return this.members.includes(element);
+	}
 }
 
 PGroup.empty = new PGroup([]);
