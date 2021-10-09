@@ -1,8 +1,7 @@
 function reliableMultiply(a, b) {
 	for (;;) {
 		try {
-			primitiveMultiply(a, b);
-			break;
+			return primitiveMultiply(a, b);
 		} catch(e) {
 			if (!e instanceof MultiplicatorUnitFailure) {
 				throw e;
