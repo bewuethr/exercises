@@ -1,11 +1,12 @@
 function reliableMultiply(a, b) {
-    for (;;) {
-        try {
-            return primitiveMultiply(a, b);
-        } catch (error) {
-            if  (!(error instanceof MultiplicatorUnitFailure)) {
-                throw error;
-            }
-        }
-    }
+	for (;;) {
+		try {
+			primitiveMultiply(a, b);
+			break;
+		} catch(e) {
+			if (!e instanceof MultiplicatorUnitFailure) {
+				throw e;
+			}
+		}
+	}
 }
