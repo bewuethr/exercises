@@ -22,6 +22,6 @@ verify(/\w{7,}/,
 	["Siebentausenddreihundertzweiundzwanzig"],
 	["no", "three small words"]);
 
-verify(/\b[^e]+\b/i,
+verify(/\b[^e\s]+\b/i,
 	["red platypus", "wobbling nest"],
 	["earth bed", "learning ape", "BEET"]);
