@@ -1,4 +1,4 @@
-const graph = require("./graph");
+const {buildGraph} = require("./graph");
 
 const roads = [
 	"Alice's House-Bob's House",   "Alice's House-Cabin",
@@ -10,4 +10,4 @@ const roads = [
 	"Marketplace-Town Hall",       "Shop-Town Hall"
 ];
 
-exports.roadGraph = graph.buildGraph(roads.map(r => r.split("-")));
+exports.roadGraph = buildGraph(roads.map(r => r.split("-")));
