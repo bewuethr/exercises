@@ -1,14 +1,17 @@
 function Promise_all(promises) {
-    return new Promise((resolve, reject) => {
-        let ctr = promises.length;
-        let resArray = [];
-        if (ctr === 0) resolve(resArray);
-        for (let idx = 0; idx < promises.length; ++idx) {
-            promises[idx].then(result => {
-                resArray[idx] = result;
-                --ctr;
-                if (ctr === 0) resolve(resArray);
-            }, reject);
-        }
-    });
+	return new Promise((resolve, reject) => {
+		let result = [];
+		let unresolved = promises.length;
+		if (unresolved == 0) resolve(result);
+
+		for (let i = 0; i < promises.length; ++i) {
+			promises[i]
+				.then(value => {
+					result[i] = value;
+					--unresolved;
+					if (unresolved == 0) resolve(result);
+				})
+				.catch(error => reject(error));
+		}
+	});
 }
