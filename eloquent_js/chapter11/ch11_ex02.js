@@ -11,7 +11,7 @@ function Promise_all(promises) {
 					--unresolved;
 					if (unresolved == 0) resolve(result);
 				})
-				.catch(error => reject(error));
+				.catch(reject);
 		}
 	});
 }
