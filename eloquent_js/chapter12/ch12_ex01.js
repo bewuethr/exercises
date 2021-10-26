@@ -1,5 +1,11 @@
-topScope.array = (...values) => values;
+topScope.array = function(...values) {
+	return values;
+}
 
-topScope.length = array => array.length;
+topScope.length = function(array) {
+	return array.length;
+}
 
-topScope.element = (array, n) => array[n];
+topScope.element = function(array, n) {
+	return array[n];
+}
