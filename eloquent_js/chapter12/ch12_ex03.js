@@ -1,4 +1,4 @@
 function skipSpace(string) {
-    let toRemove = string.match(/^(?:\s|#.*)*/);
-    return string.slice(toRemove[0].length);
+	let match = string.match(/^(\s+|#.*)*/);
+	return string.slice(match[0].length);
 }
