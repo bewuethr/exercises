@@ -1,20 +1,19 @@
 specialForms.set = (args, scope) => {
-    if (args.length != 2 || args[0].type != "word") {
-        throw new SyntaxError("Incorrect use of set");
-    }
-    let curScope = scope;
+	if (args.length != 2 || args[0].type != "word") {
+		throw new SyntaxError("Incorrect use of set");
+	}
 
-    // Would be nicer with a for loop to change scope
-    while (!Object.prototype.hasOwnProperty.call(curScope, args[0].name)) {
-        curScope = Object.getPrototypeOf(curScope);
+	let name = args[0].name;
+	let value = evaluate(args[1], scope);
 
-        // Could probably use (!curScope) instead
-        if (curScope === null) {
-            throw new ReferenceError("Can't set non-existing binding " +
-                                     `'${args[0].name}'`);
-        }
-    }
-    let value = evaluate(args[1], scope);
-    curScope[args[0].name] = value;
-    return value;
-}
+	while (scope) {
+		if (Object.prototype.hasOwnProperty.call(scope, name)) {
+			scope[name] = value;
+			return value;
+		}
+
+		scope = Object.getPrototypeOf(scope);
+	};
+
+	throw new ReferenceError(`Variable ${name} does not exist`);
+};
