@@ -1,22 +1,31 @@
-let table = document.getElementById("mountains")
-	.appendChild(document.createElement("table"));
+function addTable(id, data) {
+	const headerTag = "th", dataTag = "td";
 
-let names = Object.keys(MOUNTAINS[0]);
+	let table = document.getElementById(id)
+		.appendChild(document.createElement("table"));
 
-let header = table.appendChild(document.createElement("tr"));
-for (let name of names) {
-	header.appendChild(document.createElement("th"))
-		.appendChild(document.createTextNode(name));
-}
-
-for (let mountain of MOUNTAINS) {
-	let row = table.appendChild(document.createElement("tr"));
-	for (let name of names) {
-		let textNode = row.appendChild(document.createElement("td"))
-			.appendChild(document.createTextNode(mountain[name]));
-
-		if (typeof mountain[name] == "number") {
-			textNode.parentNode.style.textAlign = "right";
-		}
+	function appendCell(node, tag, text) {
+		return node.appendChild(document.createElement(tag))
+			.appendChild(document.createTextNode(text));
 	}
+
+	let names = Object.keys(data[0]);
+
+	let header = table.appendChild(document.createElement("tr"));
+	names.forEach(function(name) {
+		appendCell(header, headerTag, name);
+	});
+
+	data.forEach(function(mountain) {
+		let row = table.appendChild(document.createElement("tr"));
+		names.forEach(function(name) {
+			let textNode = appendCell(row, dataTag, mountain[name]);
+
+			if (typeof mountain[name] == "number") {
+				textNode.parentNode.style.textAlign = "right";
+			}
+		});
+	});
 }
+
+addTable("mountains", MOUNTAINS);
