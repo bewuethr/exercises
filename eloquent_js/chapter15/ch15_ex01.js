@@ -4,8 +4,6 @@ let fontSize = window.getComputedStyle(para)
 	.getPropertyValue("font-size")
 	.slice(0, -2);
 
-document.addEventListener("keydown", handleKeys);
-
 function handleKeys(event) {
 	if (event.key == "ArrowUp") {
 		increaseFontSize(para);
@@ -24,7 +22,7 @@ function increaseFontSize(element) {
 
 	if (fontSize > 200) {
 		element.textContent = "💥";
-		document.removeEventListener("keydown", handleKeys);
+		document.body.removeEventListener("keydown", handleKeys);
 	}
 }
 
@@ -32,3 +30,5 @@ function decreaseFontSize(element) {
 	fontSize *= 0.9
 	element.style.fontSize = fontSize + "px";
 }
+
+document.body.addEventListener("keydown", handleKeys);
