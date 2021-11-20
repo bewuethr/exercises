@@ -15,12 +15,17 @@ function generateColors() {
 	let colors = [];
 	const ncolors = 256;
 
+	// interpolate and round down to nearest integer
+	function interpolate(lower, upper, weight) {
+		return lower + Math.floor(weight * (upper - lower));
+	}
+
 	for (let i = 0; i < ncolors; ++i) {
 		let lower = Math.floor(i / ncolors * mapTo);
 		let weight = i / ncolors * mapTo - lower;
-		let r = rainbow[lower].r + Math.floor(weight * (rainbow[lower+1].r - rainbow[lower].r));
-		let g = rainbow[lower].g + Math.floor(weight * (rainbow[lower+1].g - rainbow[lower].g));
-		let b = rainbow[lower].b + Math.floor(weight * (rainbow[lower+1].b - rainbow[lower].b));
+		let r = interpolate(rainbow[lower].r, rainbow[lower+1].r, weight);
+		let g = interpolate(rainbow[lower].g, rainbow[lower+1].g, weight);
+		let b = interpolate(rainbow[lower].b, rainbow[lower+1].b, weight);
 		colors.push({r, g, b});
 	}
 
@@ -43,7 +48,11 @@ function generateDots() {
 function updateDots(event) {
 	dots[idx].style.left = (event.clientX - 3) + "px";
 	dots[idx].style.top = (event.clientY - 3) + "px";
-	dots[idx].style.background = `rgb(${colors[colorIdx].r}, ${colors[colorIdx].g}, ${colors[colorIdx].b})`;
+	dots[idx].style.background = `rgb(
+		${colors[colorIdx].r},
+		${colors[colorIdx].g},
+		${colors[colorIdx].b}
+	)`;
 
 	idx = (idx + 1) % dots.length;
 	colorIdx = (colorIdx + 1) % colors.length;
