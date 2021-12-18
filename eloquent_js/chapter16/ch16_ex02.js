@@ -4,6 +4,7 @@ function runLevel(level, Display) {
 	let ending = 1;
 	let suspended = false;
 
+
 	return new Promise(resolve => {
 		function escHandler(event) {
 			if (event.type == "keyup" && event.key == "Escape") {
@@ -17,6 +18,7 @@ function runLevel(level, Display) {
 		}
 
 		window.addEventListener("keyup", escHandler);
+		const arrowKeys = trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp"]);
 
 		function frame(time) {
 			if (suspended) return false;
@@ -35,9 +37,31 @@ function runLevel(level, Display) {
 
 			display.clear();
 			resolve(state.status);
+			window.removeEventListener("keyup", escHandler);
+			arrowKeys.unregister();
 			return false;
 		}
 
 		runAnimation(frame);
 	});
+}
+
+function trackKeys(keys) {
+	let down = Object.create(null);
+
+	function track(event) {
+		if (keys.includes(event.key)) {
+			down[event.key] = event.type == "keydown";
+			event.preventDefault();
+		}
+	}
+	window.addEventListener("keydown", track);
+	window.addEventListener("keyup", track);
+
+	down.unregister = function() {
+		window.removeEventListener("keydown", track);
+		window.removeEventListener("keyup", track);
+	}
+
+	return down;
 }
