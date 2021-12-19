@@ -22,8 +22,26 @@ function diamond(cx, x, y, side, col) {
 	cx.restore();
 }
 
+function zigZag(cx, x, y, w, h, n) {
+	let dy = h / n;
+	cx.moveTo(x, y);
+	let isLeft = true;
+
+	for (let i = 0; i < n; ++i) {
+		x += isLeft ? w : -w;
+		y += dy;
+		cx.lineTo(x, y);
+		isLeft = !isLeft;
+	}
+
+	cx.stroke();
+}
+
 trapezoid(cx, 10, 10, 60, 80, 20);
 trapezoid(cx, 100, 10, 90, 40, 30);
 
-diamond(cx, 10, 60, 30, "red");
-diamond(cx, 60, 60, 45, "blue");
+diamond(cx, 200, 10, 30, "red");
+diamond(cx, 250, 10, 45, "blue");
+
+zigZag(cx, 320, 10, 50, 30, 3);
+zigZag(cx, 400, 10, 25, 100, 50);
