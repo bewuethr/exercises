@@ -25,13 +25,11 @@ function diamond(cx, x, y, side, col) {
 function zigZag(cx, x, y, w, h, n) {
 	let dy = h / n;
 	cx.moveTo(x, y);
-	let isLeft = true;
 
 	for (let i = 0; i < n; ++i) {
-		x += isLeft ? w : -w;
+		x += (i % 2 == 0) ? w : -w;
 		y += dy;
 		cx.lineTo(x, y);
-		isLeft = !isLeft;
 	}
 
 	cx.stroke();
