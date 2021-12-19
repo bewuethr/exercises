@@ -37,6 +37,23 @@ function zigZag(cx, x, y, w, h, n) {
 	cx.stroke();
 }
 
+function spiral(cx, x, y, radius, n) {
+	const nSeg = 100;
+	let dPhi = 2 * n * Math.PI / nSeg;
+	let dr = radius / nSeg;
+	let r = 0, phi = 0;
+
+	cx.moveTo(x, y);
+
+	for (let i = 0; i < nSeg; ++i) {
+		r += dr;
+		phi += dPhi;
+		cx.lineTo(x + r * Math.cos(phi), y + r * Math.sin(phi));
+	}
+
+	cx.stroke();
+}
+
 trapezoid(cx, 10, 10, 60, 80, 20);
 trapezoid(cx, 110, 10, 90, 40, 30);
 
@@ -45,3 +62,6 @@ diamond(cx, 280, 10, 45, "blue");
 
 zigZag(cx, 360, 10, 50, 30, 3);
 zigZag(cx, 430, 10, 25, 100, 50);
+
+spiral(cx, 500, 35, 25, 5);
+spiral(cx, 595, 60, 50, 4.75);
