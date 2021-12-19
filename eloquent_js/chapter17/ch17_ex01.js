@@ -38,10 +38,10 @@ function zigZag(cx, x, y, w, h, n) {
 }
 
 trapezoid(cx, 10, 10, 60, 80, 20);
-trapezoid(cx, 100, 10, 90, 40, 30);
+trapezoid(cx, 110, 10, 90, 40, 30);
 
-diamond(cx, 200, 10, 30, "red");
-diamond(cx, 250, 10, 45, "blue");
+diamond(cx, 220, 10, 30, "red");
+diamond(cx, 280, 10, 45, "blue");
 
-zigZag(cx, 320, 10, 50, 30, 3);
-zigZag(cx, 400, 10, 25, 100, 50);
+zigZag(cx, 360, 10, 50, 30, 3);
+zigZag(cx, 430, 10, 25, 100, 50);
