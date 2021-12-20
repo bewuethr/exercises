@@ -50,6 +50,7 @@ class Ball {
 		let y = this.pos.y + diameter / 2;
 		cx.arc(x, y, diameter / 2, 0, 7);
 		cx.fill();
+		cx.strokeRect(0, 0, cx.canvas.width, cx.canvas.height);
 	}
 }
 
