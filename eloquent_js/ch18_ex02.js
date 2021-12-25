@@ -1,19 +1,13 @@
-let button = document.getElementById("button");
-let code = document.getElementById("code");
-let output = document.getElementById("output");
+document.getElementById("button")
+	.addEventListener("click", () => {
+		let result = "";
+		try {
+			result = Function(document.getElementById("code").value)();
+		}
+		catch(e) {
+			result = e;
+		}
 
-function runFunc(code, output) {
-	let result = "";
-	try {
-		let func = Function("", code.value);
-		result = func();
-	}
-	catch(e) {
-		result = e;
-	}
-
-	let node = document.createTextNode(result + "\n");
-	output.append(node);
-}
-
-button.addEventListener("click", () => runFunc(code, output));
+		document.getElementById("output")
+			.append(document.createTextNode(result + "\n"));
+	});
