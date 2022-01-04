@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Grep-like search tool",
   "type": "module",
-  "main": "main.js",
+  "main": "cli.js",
+  "bin": "cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
