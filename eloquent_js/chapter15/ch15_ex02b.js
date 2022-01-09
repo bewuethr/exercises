@@ -1,7 +1,7 @@
 function updateMouse(event) {
 	mouse = {
-		x: event.clientX,
-		y: event.clientY
+		x: event.clientX + window.scrollX,
+		y: event.clientY + window.scrollY
 	};
 }
 
