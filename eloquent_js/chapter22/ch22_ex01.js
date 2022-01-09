@@ -2,12 +2,9 @@ function findPath(a, b) {
 	let work = [];
 	work.push([a]);
 
-	for (let idx = 0; idx < work.length; ++idx) {
-		let path = work[idx];
+	for (let path of work) {
 		let last = path[path.length - 1];
-		if (last == b) {
-			return path;
-		}
+		if (last == b) return path;
 
 		for (let next of last.edges) {
 			if (!work.some(path => path[path.length - 1] == next)) {
