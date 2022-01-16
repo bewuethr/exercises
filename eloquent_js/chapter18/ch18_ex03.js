@@ -14,7 +14,7 @@ class Grid {
 	}
 
 	static create(elem, fillRate = 0.25, side = 33) {
-		elem.style.lineHeight = 0.75;
+		elem.style.lineHeight = 0.6;
 		let g = new Grid(fillRate, side);
 		g.grid.forEach(row => {
 			row.forEach(box => elem.appendChild(box));
